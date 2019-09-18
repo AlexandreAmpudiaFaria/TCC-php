@@ -54,7 +54,7 @@ session_start();
 </head>
 <body class="fundo" onload="setInterval('Atualizar()',60000)">
   <div>
-    <!-- As a link -->
+        <!-- As a link -->
     <nav class="navbar navbar-light bg-primary teste">
        <a class="navbar-brand testee" href="home.php" >Home <i class="fas fa-home"></i></a>
 
@@ -78,7 +78,7 @@ session_start();
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
-       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-user-md"></i></a>
+       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-hand-holding-heart"></i></a>
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
@@ -89,7 +89,7 @@ session_start();
     <nav class="navbar navbar-light bg-primary">
        <a class="navbar-brand" href="formularioCadastrarUsuario.php">Usuarios <i class="fas fa-user-tie"></i></a>
     </nav>
-  </div>
+    </div>
    
    <div class="corpoGerarAtendimento">
     <h1>Gerar Novo Atendimento</h1>
@@ -123,7 +123,8 @@ session_start();
             $result_pacientes = "SELECT * FROM pacientes";
             $resultado_pacientes = mysqli_query($conn, $result_pacientes);
             while($row_pacientes = mysqli_fetch_assoc($resultado_pacientes)){ ?>
-              <option value="<?php echo $row_pacientes['id']; ?>"><?php echo $row_pacientes['nomePaciente']; ?></option> <?php
+              <option value="<?php echo $row_pacientes['id']; ?>"><?php echo $row_pacientes['sus'],
+              ' - ', $row_pacientes['nomePaciente']; ?></option> <?php
             }
           ?>
         </select>

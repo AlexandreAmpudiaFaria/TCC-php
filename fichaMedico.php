@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
     if (!isset($_SESSION['usuario'])) {
     Header("Location: index.html");
@@ -17,12 +16,9 @@ session_start();
     	exit;
     }
  
-    $id = trim($_REQUEST['idAtendimento']);
+    $id = trim($_REQUEST['id']);
     
-    //$rs = mysql_query("SELECT * FROM atendimentos where id=".$id); // rs = record set = conjunto de registros da tabela
-
-    $rs = mysql_query("SELECT * FROM atendimentos  INNER JOIN procedimentos on procedimentos.id=atendimentos.procedimento join pacientes on pacientes.id=atendimentos.paciente join medicos on medicos.id=atendimentos.medico where idAtendimento='$id';"); // rs = record set = conjunto de registros da tabela
-
+    $rs = mysql_query("SELECT * FROM medicos where id=".$id); // rs = record set = conjunto de registros da tabela
     $edita = mysql_fetch_array($rs);
 
 ?>
@@ -31,7 +27,7 @@ session_start();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Ficha de Atendimento</title>
+    <title>Ficha do Medico</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -80,46 +76,39 @@ session_start();
 
      <div class="corpoEditarPaciente">
         <br>
-        <h1 class="text-black">Ficha do Atendimento</h1>
+        <h1 class="text-black">Ficha do Medico</h1>
         
-        <form id="frmFichaPaciente" name="frmFichaPaciente" method="POST" 
-        action="gravaAtendimento.php">
+        <form id="frmFichaMedico" name="frmFichaMedico" method="POST" 
+        action="editarMedico.php">
         <div class="form-group">
             <br>
-            <label for="lbltxtId"> ID: <?php echo $edita['idAtendimento'] ?></label>
-            <input type="hidden" name="txtID" value="<?php echo $edita['idAtendimento'] ?>">
+            <label for="lbltxtId"> ID: <?php echo $edita['id'] ?></label>
+            <input type="hidden" name="id" value="<?php echo $edita['id'] ?>">
         </div>
 
         <div class="form-group">
-        <label for="lbltxtId"> Procedimento: <?php echo $edita['descricao'] ?></label>
-        <input type="hidden" name="txtProcedimento" value="<?php echo $rs['descricao'] ?>">
+            <label for="lblnome" required=""> Nome: </label>
+            <input type="text" id="txtNome" name="txtNome" class="form-control col-md-4"
+            value="<?php echo $edita['nome'] ?>" required="">
         </div>
 
         <div class="form-group">
-        <label for="lbltxtId"> Paciente: <?php echo $edita['nomePaciente'] ?></label>
-        <input type="hidden" name="txtPaciente" value="<?php echo $rs['nomePaciente'] ?>">
+            <label for="lblCPF"> CPF: </label>
+            <input type="text" id="txtCPF" name="txtCPF" class="form-control col-md-4"
+            value="<?php echo $edita['cpf'] ?>">
         </div>
 
         <div class="form-group">
-        <label for="lbltxtId"> médico responsavel: <?php echo $edita['cpf'] ?></label>
-        <input type="hidden" name="txtMedico" value="<?php echo $rs['id'] ?>">
+            <label for="lblTelefone"> Telefone: </label>
+            <input type="text" id="txtTelefone" name="txtTelefone" class="form-control col-md-4"
+            value="<?php echo $edita['telefone'] ?>">
         </div>
 
         <div class="form-group">
-        <label for="lbltxtId"> data: <?php echo $edita['data'] ?></label>
-        <input type="hidden" name="txtData" value="<?php echo $rs['data'] ?>">
+            <label for="lblCRM"> CRM :</label>
+            <input type="text" id="txtCRM" name="txtCRM" class="form-control col-md-6" value="<?php echo $edita['crm'] ?>" required="">
         </div>
 
-        <div class="form-group">
-        <label for="lbltxtId"> descricao: <?php echo $edita['descricaoAtendimento'] ?></label>
-        <input type="hidden" name="txtDescricao" value="<?php echo $rs['descricaoAtendimento'] ?>">
-        </div>
-
-        <div class="form-group">
-            <label for="lblLaudo" required=""> Laudo Médico: </label>
-            <input type="text" id="txtLaudo" name="txtLaudo" class="form-control col-md-4" required="">
-            <input type="hidden" name="txtStatus" value="1">
-        </div>
 
         <div class="form-group">
             <input type="submit" id="botaoEnviar" name="botaoEnviar" class="btn btn-success bt-lg" 
@@ -127,18 +116,11 @@ session_start();
             <input type="reset" id="botaoLimpar" name="botaoLimpar" class=" btn btn-primary bt-lg"
             value="Limpar">
             <input type="button" id="botaoCancelar" name="botaoCancelar" class="btn btn-danger bt-lg"
-            value="Voltar" onclick="javascript:location.href='listarClientes.php'">
-            <input type="button" id="botaoHistorico" name="botaoHistorico" class="btn btn-info bt-lg"
-            value="Historico" onclick="javascript:location.href='historico.php'">
+            value="Voltar" onclick="javascript:location.href='manterMedicos.php'">
   
           </div>
             
-        </form>
-                        
-
-     
-
-     
+        </form>       
      </div>
 
  </body>

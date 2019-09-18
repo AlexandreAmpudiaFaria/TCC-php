@@ -58,7 +58,7 @@ session_start();
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
-       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-user-md"></i></a>
+       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-hand-holding-heart"></i></a>
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
@@ -125,6 +125,8 @@ session_start();
 
      
      </div>
+
+     
 </div>
 </body>
 </html>

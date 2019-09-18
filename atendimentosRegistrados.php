@@ -72,7 +72,7 @@ session_start();
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
-       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-user-md"></i></a>
+       <a class="navbar-brand" href="manterProcedimentos.php">Procedimentos <i class="fas fa-hand-holding-heart"></i></a>
     </nav>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-primary">
@@ -88,25 +88,7 @@ session_start();
   <div class="table-responsive container table corpoAtendimentosRegistrados">
      <br>
      <h1 class="text-black ">Atendimentos em Aberto</h1>
-     <br><br><br><br>
-
-      <div>
-         <form class="BuscarPaciente" id="BuscarPaciente" name="pesquisarPacienteNome.php" method="POST" 
-         action="pesquisarPacienteNome.php">
-         
-            
-             <label class="nomePaciente" for="lblNome">Buscar por SUS :</label>
-             <input class="form-control col-md-5" type="text" name="txtSus" id="txtSus">
-             
-             <input type="submit" id="botaoEnviar" name="botaoEnviar" class="btn btn-success btnPesquisarPaciente" 
-            value="Pesquisar">
-          
-         </form>
-        </div>
-                                    
-            
-     <br>
-     <br>
+     <br><br>
      <div class="container col-md-10 ListarPacientes">
      <table class="table table-striped">
         <tr>

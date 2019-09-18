@@ -1,0 +1,312 @@
+/* Login */
+.box {
+    width: 500px;
+    margin: 200px 0;
+}
+
+.shape1{
+    position: relative;
+    height: 160px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -50px;
+}
+.shape2 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -30px;
+    float: left;
+}
+.shape3 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -30px;
+    float: left;
+    margin-left: -31px;
+}
+.shape4 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -25px;
+    float: left;
+    margin-left: -32px;
+}
+.shape5 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -48px;
+    margin-left: -32px;
+    margin-top: -30px;
+}
+.shape6 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -20px;
+    margin-top: -35px;
+}
+.shape7 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -20px;
+    margin-top: -57px;
+}
+.float {
+    position: absolute;
+    z-index: 2;
+}
+
+.form {
+    margin-left: 145px;
+}
+
+
+
+
+
+
+
+
+
+/*fim do login*/
+
+body.fundo{
+	//background-color: ;
+}
+
+.navbar {
+    width:235px;
+    height:110px;
+    margin-top:-30px;
+    margin-left: -5px;
+    position:relative;
+    /*background-color: rgb(51, 51, 51);*/
+    border-radius: 15px 15px 15px 15px;
+}
+
+div.corpoCadastrarPaciente{
+	margin-top: -650px;
+    margin-left: 220px;
+
+}
+
+div.corpoCadastrarMedico{
+    margin-top: -680px;
+    margin-left: 240px;
+
+}
+
+div.corpoCadastrarUsuario{
+    margin-top: -650px;
+    margin-left: 240px;
+
+}
+
+div.corpoRelatorioMedico{
+    margin-top: -650px;
+    margin-left: 220px;
+
+}
+
+div.LogoHome{
+	margin-top:50px;
+	margin-left: 480px;
+}
+
+div.LogoMedico{
+    margin-top:20px;
+    margin-left: 620px;
+}
+
+div.buttonAreaMedicoAtendimentos{
+    margin-top:50px;
+    margin-left: 550px;
+}
+
+div.buttonAreaMedicoAtendimentosRealizados{
+    margin-top:-68px;
+    margin-left: 720px;
+}
+
+div.corpoManterPacientes{
+    margin-top: -650px;
+    margin-left: 220px;
+}
+
+div.corpoAtendimentosRegistrados{
+    margin-top: -650px;
+    margin-left: 220px;
+}
+
+div.corpoPaginaAtendimento{
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+div.corpoEditarPaciente{
+    margin-top: -650px;
+    margin-left: 260px;
+}
+
+div.corpoGerarAtendimento{
+    margin-top: -650px;
+    margin-left: 250px;
+}
+
+
+div.ListarPacientes{
+    margin-left: -2px;
+    margin-top: -30px;
+}
+
+input.btnAddPaciente{
+    margin-left: 12px;
+    margin-top: 30px;
+}
+div.btnLogoutHome{
+    margin-left: 1250px;
+    margin-top: -250px;
+}
+
+div.btnLogoutManterPacientes{
+    margin-left: 1250px;
+    margin-top: -440px;
+}
+
+div.btnLogoutPesquisarPacientes{
+    margin-left: 1250px;
+    margin-top: -550px;
+}
+
+
+div.btnLogoutGerarAtendimento{
+    margin-left: 1250px;
+    margin-top: -540px;
+}
+
+div.btnLogoutAreaDoMedico{
+    margin-left: 1250px;
+    margin-top: -400px;
+}
+
+
+input.caixaNomePaciente{
+    margin-left: 130px;
+    margin-top: -40px;
+}
+
+input.CancelarImpressao{
+    margin-left: 120px;
+    margin-top: -68px;
+}
+
+
+input.btnPesquisarPaciente{
+    margin-left: 400px;
+    margin-top: -65px
+}
+
+input.btnPesquisarMedico{
+    margin-left: 450px;
+    margin-top: -65px
+}
+
+input.btnHistorico{
+    margin-left: 245px;
+    margin-top: -100px
+}
+
+
+label.nomePaciente{
+    margin-top: 35px;
+}
+
+form.BuscarPaciente{
+    margin-top: -104px;
+    margin-left: 280px;
+}
+
+div.logo{
+    margin-top: -600px;
+    margin-left: 650px;
+}
+
+div.logoHM{
+    margin-left: 570px;
+    margin-bottom: -135px;
+    margin-top: 20px;
+}
+
+div.info1{
+    margin-top: 460px;
+    margin-left: 560px;
+}
+div.info2{
+    margin-top: -10px;
+    margin-left: 600px;
+}
+div.info3{
+    margin-top: -10px;
+    margin-left: 565px;
+}
+
+h1.titulo{
+    font-size: 40pt;
+    margin-left: 300px;
+    font-family:  arial;
+    margin-top: -100px;
+}
+
+label.relatorio{
+    font-size: 30pt;
+    font-family:  arial;
+    margin-top: 10px;
+}
+
+label.assinatura{
+    font-size: 30pt;
+    font-family:  arial;
+    margin-top: 10px;
+    margin-left: 700px;
+}
+
+label.linha{
+    font-size: 30pt;
+    font-family:  arial;
+    margin-top: 300px;
+    margin-left: 500px;
+}
+
+div.imagemRelatorio{
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+a.testee{
+    
+}
+
+
+

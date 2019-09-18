@@ -1,36 +1,22 @@
-<?php 
+<?php
+
 session_start();
-    if (!isset($_SESSION['usuario'])) {
-    Header("Location: index.html");
-    }
-    
+if (!isset($_SESSION['usuario'])) {
+  Header("Location: index.html");
+}
 
-    $conexao = mysql_connect("localhost","root",""); //abre a conexao com banco
-    if(!$conexao){
-    	echo "Erro ao se conectar ao banco";
-    	exit;
-    }
-
-    $banco = mysql_select_db("hospital"); // seleciona o banco a ser usado
-    if(!$banco){
-    	echo "Erro ao se conectar com o banco trabalho";
-    	exit;
-    }
-
-    $rs = mysql_query("SELECT * FROM procedimentos;"); // rs = record set = conjunto de registros da tabela
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Manter Procedimentos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<title>Cadastrar Procedimento</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/validator.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
+	
 </head>
 <body class="corpo">
   <div>
@@ -70,37 +56,29 @@ session_start();
        <a class="navbar-brand" href="formularioCadastrarUsuario.php">Usuarios <i class="fas fa-user-tie"></i></a>
     </nav>
     </div>
+	<div class="corpoCadastrarPaciente">
+    <br><br>
+		<h1 class="text-black container col-md-12">Cadastrar Novo Procedimento</h1>
+		<form id="frmNovoPaciente" name="frmNovoPaciente" method="POST" action="cadastrarProcedimento.php">
+		  <br>
+		  <div class="form-group col-md-5">
+             <label for="lblNome">Descrição :</label>
+             <input type="text" class="form-control" id="txtDescricao" name="txtDescricao"  placeholder="Digite o nome do paciente" required="">
+          </div>
 
-  <div class="table-responsive container table corpoManterPacientes">
-     <br>
-     <h1 class="text-black ">Lista de Procedimentos</h1>
-     <br>
 
-     <input type="button" id="botaoAdicionar" name="botaoAdicionar" class="btn btn-primary btnAddPaciente"
-            value="Adicionar Procedimento" onclick="javascript:location.href='formularioCadastrarProcedimento.php'">
-                                    
-            
-     <br>
-     <br>
-     <br>
-     <br>
-     <div class="container col-md-6 ListarPacientes">
-     <table class="table table-striped">
-        <tr>
-         <th class=" text-center col-md-1 id" >ID</th>
-         <th class=" text-center col-md-10" >Descrição</th>         
-        </tr>
-        <?php while ($linha = mysql_fetch_array($rs)) {?>
-            <tr>
-                <td class="text-center"><?php echo $linha ['id'] ?></td>
-                <td class="text-center"><?php echo $linha ['descricao'] ?></td>
-            </tr>
-        <?php } ?>  
+          <div class="form-group col-md-5">
+          	<input type="submit" id="botaoEnviar" name="botaoEnviar" class="btn btn-success" 
+          	value="Gravar">
+          	<input type="reset" id="botaoLimpar" name="botaoLimpar" class=" btn btn-primary"
+          	value="Limpar">
+          	<input type="button" id="botaoCancelar" name="botaoCancelar" class="btn btn-danger"
+          	value="Cancelar" onclick="javascript:location.href='manterProcedimentos.php'">
+          </div>
+          
+			
+		</form>
+	</div>
 
-            
-     </table>
-
-     
-
-     
-     </div>
+</body>
+</html>

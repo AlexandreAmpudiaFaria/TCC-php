@@ -1,40 +1,26 @@
-<?php 
+<?php
+
 session_start();
-    if (!isset($_SESSION['usuario'])) {
-    Header("Location: index.html");
-    }
-    
+if (!isset($_SESSION['usuario'])) {
+  Header("Location: index.html");
+}
 
-    $conexao = mysql_connect("localhost","root",""); //abre a conexao com banco
-    if(!$conexao){
-    	echo "Erro ao se conectar ao banco";
-    	exit;
-    }
-
-    $banco = mysql_select_db("hospital"); // seleciona o banco a ser usado
-    if(!$banco){
-    	echo "Erro ao se conectar com o banco trabalho";
-    	exit;
-    }
-
-    $rs = mysql_query("SELECT * FROM procedimentos;"); // rs = record set = conjunto de registros da tabela
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Manter Procedimentos</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>Área do Médico</title>
+	<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/validator.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
-</head>
-<body class="corpo">
+  </head>
+<body class="fundo">
   <div>
-        <!-- As a link -->
+    <!-- As a link -->
     <nav class="navbar navbar-light bg-primary teste">
        <a class="navbar-brand testee" href="home.php" >Home <i class="fas fa-home"></i></a>
 
@@ -69,38 +55,31 @@ session_start();
     <nav class="navbar navbar-light bg-primary">
        <a class="navbar-brand" href="formularioCadastrarUsuario.php">Usuarios <i class="fas fa-user-tie"></i></a>
     </nav>
-    </div>
+  </div>
 
-  <div class="table-responsive container table corpoManterPacientes">
-     <br>
-     <h1 class="text-black ">Lista de Procedimentos</h1>
-     <br>
 
-     <input type="button" id="botaoAdicionar" name="botaoAdicionar" class="btn btn-primary btnAddPaciente"
-            value="Adicionar Procedimento" onclick="javascript:location.href='formularioCadastrarProcedimento.php'">
-                                    
-            
-     <br>
-     <br>
-     <br>
-     <br>
-     <div class="container col-md-6 ListarPacientes">
-     <table class="table table-striped">
-        <tr>
-         <th class=" text-center col-md-1 id" >ID</th>
-         <th class=" text-center col-md-10" >Descrição</th>         
-        </tr>
-        <?php while ($linha = mysql_fetch_array($rs)) {?>
-            <tr>
-                <td class="text-center"><?php echo $linha ['id'] ?></td>
-                <td class="text-center"><?php echo $linha ['descricao'] ?></td>
-            </tr>
-        <?php } ?>  
+  <div class="logo">
+    <img src="logoMedico2.png">
+    
+  </div>
 
-            
-     </table>
+	<div class="LogoMedico">
+		<h1> Área do Médico </h1>
+	</div>
 
-     
+  <div class="buttonAreaMedicoAtendimentos">
+    <input type="button" id="botaoAdicionar" name="botaoAdicionar" class="btn btn-primary btnAddPaciente"
+            value="Atendimentos" onclick="javascript:location.href='atendimentosRegistrados.php'">
+  </div>
+  <div class="buttonAreaMedicoAtendimentosRealizados">
+    <input type="button" id="botaoAdicionar" name="botaoAdicionar" class="btn btn-primary btnAddPaciente"
+            value="Atendimentos Realizados" onclick="javascript:location.href='realizados.php'">
+  </div>
 
-     
-     </div>
+	<div class="btnLogoutAreaDoMedico"> 
+    <input type="button" id="botaoEnviar" name="botaoEnviar" class="btn btn-danger" 
+            value="Logout" onclick="javascript:location.href='logout.php'">
+  </div>
+
+</body>
+</html>

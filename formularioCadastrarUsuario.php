@@ -1,40 +1,15 @@
-<?php 
+<?php
+
 session_start();
-    if (!isset($_SESSION['usuario'])) {
-    Header("Location: index.html");
-    }
-
-   $servidor = "localhost";
-  $usuario = "root";
-  $senha = "";
-  $dbname = "hospital";
-  
-  //Criar a conexao
-  $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
- /*$conexao = mysql_connect("localhost","root",""); //abre a conexao com banco
-    if(!$conexao){
-      echo "Erro ao se conectar ao banco";
-      exit;
-    }
-
-    /*$banco = mysql_select_db("hospital"); // seleciona o banco a ser usado
-    if(!$banco){
-      echo "Erro ao se conectar com o banco trabalho";
-      exit;
-    }
-
-    //$rs = mysql_query("SELECT * FROM procedimentos;"); // rs = record set = conjunto de registros da tabela*/
-
-    date_default_timezone_set('America/Sao_Paulo');
-    $date = date('Y-m-d H:i');
-    echo $date;
+if (!isset($_SESSION['usuario'])) {
+  Header("Location: index.html");
+}
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Relatorio de Atendimentos</title>
+  <title>Cadastrar Usuario</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -81,58 +56,33 @@ session_start();
        <a class="navbar-brand" href="formularioCadastrarUsuario.php">Usuarios <i class="fas fa-user-tie"></i></a>
     </nav>
     </div>
-   
-   <div class="table-responsive container table corpoRelatorioMedico">
-    <h1>Relatorio de Atendimentos</h1>
-
-    <div >
-      <form class="gerarAtendimento" id="myform" name="myform" method="POST" 
-         action="paginaRelatorio.php">        
-
+  <div class="corpoCadastrarUsuario">
+    <br>
+    <h1 class="text-black container col-md-12 ">Cadastrar Novo Usuario</h1>
+    <form id="frmNovoUsuario" name="frmNovoUsuario" method="POST" action="cadastrarUsuario.php">
+      <br>
       <div class="form-group col-md-5">
-        <label>Médico: </label>
-      <select class="custom-select" name="txtMedicos" id="txtMedicos">
-          <option>Selecione</option>
-          <?php
-            $result_medicos = "SELECT * FROM medicos";
-            $resultado_medicos = mysqli_query($conn, $result_medicos);
-            while($row_medicos = mysqli_fetch_assoc($resultado_medicos)){ ?>
-              <option value="<?php echo $row_medicos['id']; ?>"><?php echo $row_medicos['cpf']; ?></option> <?php
-            }
-          ?>
-        </select>
-        <div id="campoMedico" style="color: red;"></div>
-         <script src="teste2.js"></script>
-        
+             <label for="lblNome">Usuario :</label>
+             <input type="text" class="form-control" id="txtUsuario" name="txtUsuario"  placeholder="Digite o usuario" required="">
+          </div>
 
-      </div>
-
-
+          <div class="form-group col-md-5">
+             <label for="lblNome">Senha :</label>
+             <input type="password" class="form-control" id="txtSenha" name="txtSenha"  placeholder="Digite uma senha" required="">
+          </div>
 
           <div class="form-group col-md-5">
             <input type="submit" id="botaoEnviar" name="botaoEnviar" class="btn btn-success" 
-            value="Filtrar">
+            value="Gravar">
             <input type="reset" id="botaoLimpar" name="botaoLimpar" class=" btn btn-primary"
             value="Limpar">
             <input type="button" id="botaoCancelar" name="botaoCancelar" class="btn btn-danger"
             value="Cancelar" onclick="javascript:location.href='home.php'">
           </div>
-        </form>
-
-    
-
-    </div>
-    
-
-
-
-   </div>
-
-   <div class="btnLogoutGerarAtendimento"> 
-    <input type="button" id="botaoEnviar" name="botaoEnviar" class="btn btn-danger" 
-            value="Logout" onclick="javascript:location.href='logout.php'">
+          
+      
+    </form>
   </div>
-  
 
 </body>
 </html>
